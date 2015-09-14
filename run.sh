@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Quiet period before start backup
-WAIT_TIME="60"
+WAIT_TIME="180"
 
 VARIABLES=(
   S3_URL
