@@ -1,7 +1,7 @@
 periodic-data-backup
 ====================
 
-Docker container that monitor and backup a folder to S3 using [duplicity](http://duplicity.nongnu.org/) to backup and [inotify-tools ](http://linux.die.net/man/7/inotify) to monitor files changes.
+Docker container that monitor and backup a folder to S3 using duplicity to backup and inotify-tools to monitor files changes.
 
 ### Use
 
