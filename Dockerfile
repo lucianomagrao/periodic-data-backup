@@ -1,6 +1,7 @@
 FROM ubuntu:trusty
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV WATCHERS 12000
 RUN apt-get update -y
 
 # Install duplicity and tools to monitor file changes

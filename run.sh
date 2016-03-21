@@ -10,6 +10,8 @@ VARIABLES=(
   PATH_TO_BACKUP
 )
 
+echo $WATCHERS > /proc/sys/fs/inotify/max_user_watches
+
 for var in "${VARIABLES[@]}"; do
 	eval var_value=\$$var
 	if [ -z "$var_value" ]; then
