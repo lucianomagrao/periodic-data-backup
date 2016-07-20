@@ -8,6 +8,7 @@ VARIABLES=(
   AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY
   PATH_TO_BACKUP
+  FULL_BACKUPS_TO_KEEP
 )
 
 echo $WATCHERS > /proc/sys/fs/inotify/max_user_watches
@@ -46,6 +47,6 @@ while inotifywait -r -e $inotifywait_events $PATH_TO_BACKUP ; do
   echo "Starting backup"
   duplicity --progress --progress-rate 5 --no-encryption --allow-source-mismatch --full-if-older-than 7D $PATH_TO_BACKUP $S3_URL
   echo "Starting cleanup"
-  duplicity --progress --progress-rate 5 remove-all-but-n-full 3 --force --no-encryption --allow-source-mismatch $S3_URL
+  duplicity --progress --progress-rate 5 remove-all-but-n-full $FULL_BACKUPS_TO_KEEP --force --no-encryption --allow-source-mismatch $S3_URL
   duplicity --progress --progress-rate 5 cleanup --force --no-encryption $S3_URL
 done
