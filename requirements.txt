@@ -1,4 +1,0 @@
-# Duplicity general requirements
-lockfile
-# AWS S3
-boto
